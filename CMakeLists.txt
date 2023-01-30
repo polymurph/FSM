@@ -10,4 +10,6 @@ add_executable(FSM main.c)
 
 target_link_libraries(FSM ${CMAKE_THREAD_LIBS_INIT})
 
-#add_subdirectory(fsm)
+add_subdirectory(fsm)
+
+include_directories(fsm)

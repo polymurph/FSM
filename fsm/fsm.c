@@ -7,10 +7,10 @@ void fsm_kernel(
 	fsm->mtxTake();
 
 	// run state context
-	fsm->currentState->context();	
+	fsm->currentState.context();	
 	
 	// free FSM kernel
-	fsm-mtxGive();
+	fsm->mtxGive();
 }
 
 void fsm_eventHandler(
@@ -21,7 +21,7 @@ void fsm_eventHandler(
 	fsm->eventMtxTake();
 	
 	// check if event is valid
-	if(fsm->currentState != event->currentState) {
+	if(&(fsm->currentState) == &(event->currentState)) {
 		fsm->eventMtxGive();
 		return;
 	}
